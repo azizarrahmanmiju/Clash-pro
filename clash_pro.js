@@ -3,7 +3,10 @@ function play() {
     hidecontainer('home-Screen');
     showcontainer('playground');
     const number = generaterandomalphabet();
-    document.getElementById('display-word').innerText = number;
+    const elementId = document.getElementById('display-word');
+    elementId.innerText = number;
+
+    setbackgroundcolor(number);
 
 
 }
@@ -13,6 +16,12 @@ function hidecontainer(id) {
 }
 function showcontainer(id) {
     document.getElementById(id).classList.remove('hidden');
+}
+
+function setbackgroundcolor(elementid) {
+    const component = document.getElementById(elementid);
+    component.classList.add('bg-orange-400');
+
 }
 
 function generaterandomalphabet() {
