@@ -15,11 +15,11 @@
 
     <main class="bg-[url(images/background.png)] bg-no-repeat bg-center h-screen">
         <!-- home conatainer -->
-        <section class="home flex items-center  justify-center h-screen  text-white hidden">
+        <section class="home flex items-center   justify-center h-screen  text-white ">
             <div class="items-center flex flex-col gap-7">
-                <h1 class="text-9xl ">CLASH PRO</h1>
+                <h1 class="text-9xl font-bold">CLASH PRO</h1>
                 <p>Unleash Your Keyboard Kung Fu : Press “Enter” to Play</p>
-                <button class="btn btn-primary bg-white">Play NOW</button>
+                <button class="btn btn-primary bg-white" onclick="play()">Play NOW</button>
             </div>
         </section>
         <!-- playgound conatainer -->
@@ -86,7 +86,7 @@
             </div>
         </section>
         <!-- playagain -->
-        <section class="Score flex justify-center items-center h-screen ">
+        <section class="Score flex justify-center items-center h-screen hidden">
             <div
                 class=" border border-white bg-[#ffffff33] p-8 rounded-[10px] flex flex-col items-center justify-center gap-6">
                 <h1 class="text-8xl text-white">
@@ -100,6 +100,8 @@
 
         </section>
     </main>
+    <!-- //javascript connected/// -->
+    <script src="clash_pro.js"></script>
 </body>
 
 </html>
