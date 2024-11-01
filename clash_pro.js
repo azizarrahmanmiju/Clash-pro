@@ -1,4 +1,7 @@
 
+score = 0;
+life = 5;
+
 function play() {
     hidecontainer('home-Screen');
     showcontainer('playground');
@@ -7,9 +10,6 @@ function play() {
     elementId.innerText = number;
 
     setbackgroundcolor(number);
-
-
-
 }
 
 function hidecontainer(id) {
@@ -38,21 +38,54 @@ function generaterandomalphabet() {
     const alphabet = alphabetstring[index];
     return alphabet;
 }
+function setelemebtbyid(id, value) {
+    mainscore = document.getElementById(id);
+    mainscore.innerText = value;
+}
 
 document.addEventListener('keyup', handlekeyup);
 function handlekeyup(event) {
     const byplayerpressed = event.key;
     console.log(byplayerpressed);
     const expectedvalue = document.getElementById('display-word').innerText.toLowerCase();
+
+
     if (expectedvalue == byplayerpressed) {
         console.log('correct', byplayerpressed, expectedvalue);
         play();
         removebackground(expectedvalue);
-
-    } else {
-        console.log('incorrect', byplayerpressed, expectedvalue)
-        play();
+        score++;
+        setelemebtbyid('current-score', score);
+        console.log(score)
+        return;
     }
 
+    console.log('incorrect', byplayerpressed, expectedvalue);
+    play();
+    life--;
+    // lifeDiplay.innerText = life;
+    setelemebtbyid('current-life', life);
+    console.log(life);
+
+    setelemebtbyid('current-life', life);
+    if (life <= 0) {
+        // alert('Game Over');
+        hidecontainer('playground');
+        showcontainer('scoresec');
+        setelemebtbyid('totalscore', score);
+        return;
+    }
+
+}
+
+
+function restart() {
+    score = 0;
+    life = 5;
+    setelemebtbyid('current-life', life);
+    setelemebtbyid('current-score', score);
+
+    play()
+    removebackground('a b c d e f g h i j k l m n  o p q r s t u v w x y z /');
 
 }

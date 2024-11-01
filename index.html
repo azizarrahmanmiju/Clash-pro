@@ -77,24 +77,25 @@
                 <button class=" flex bg-purple-700 px-6 py-2 gap-2 rounded-full">
                     life
                     <Img src="images/life.svg"></Img>
-                    <span>1</span>
+                    <span id="current-life">5</span>
                 </button>
                 <button class=" flex bg-blue-700 px-6 py-2 gap-2 rounded-full">
                     Score
                     <Img src="images/doller.svg"></Img>
-                    <span>1</span>
+                    <span id="current-score">0</span>
                 </button>
             </div>
         </section>
         <!-- playagain -->
-        <section class="Score flex justify-center items-center h-screen hidden">
+        <section id="scoresec" class="Score flex justify-center items-center h-screen hidden">
             <div
                 class=" border border-white bg-[#ffffff33] p-8 rounded-[10px] flex flex-col items-center justify-center gap-6">
                 <h1 class="text-8xl text-white">
                     <span class="font-bold"> Score:</span>
-                    <span> 1</span>
+                    <span id="totalscore">0</span>
                 </h1>
-                <button class="bg-white text-black font-bold px-5 py-3 rounded-[10px] justify-center w-full">Play
+                <button onclick="restart()"
+                    class="bg-white text-black font-bold px-5 py-3 rounded-[10px] justify-center w-full">Play
                     Again</button>
                 <p>Practice will make you Pro</p>
             </div>
