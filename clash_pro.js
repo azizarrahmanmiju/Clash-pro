@@ -30,6 +30,13 @@ function removebackground(elementid) {
 
 }
 
+function getcurrentvaluebyid(elementid) {
+    const element = document.getElementById(elementid);
+    const value = element.innerText;
+    return value;
+
+}
+
 function generaterandomalphabet() {
     const alphabetstring = 'abcdefghijklmnopqrstuvwxyz';
     const singlealphabet = alphabetstring.split('');
@@ -79,13 +86,29 @@ function handlekeyup(event) {
 }
 
 
+
+
 function restart() {
     score = 0;
     life = 5;
     setelemebtbyid('current-life', life);
     setelemebtbyid('current-score', score);
+    const value = getcurrentvaluebyid('display-word');
+    removebackground(value);
 
-    play()
-    removebackground('a b c d e f g h i j k l m n  o p q r s t u v w x y z /');
+    removeAllBackgrounds();
+    play();
 
+
+}
+
+
+function removeAllBackgrounds() {
+    const alphabetstring = 'abcdefghijklmnopqrstuvwxyz';
+    for (const letter of alphabetstring) {
+        const element = document.getElementById(letter);
+        if (element) {
+            element.classList.remove('bg-orange-400');
+        }
+    }
 }
