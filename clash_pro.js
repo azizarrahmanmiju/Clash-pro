@@ -51,10 +51,14 @@ function setelemebtbyid(id, value) {
 }
 
 document.addEventListener('keyup', handlekeyup);
+
 function handlekeyup(event) {
     const byplayerpressed = event.key;
-    console.log(byplayerpressed);
+
     const expectedvalue = document.getElementById('display-word').innerText.toLowerCase();
+    if (byplayerpressed === 'Escape') {
+        gameover();
+    }
 
 
     if (expectedvalue == byplayerpressed) {
@@ -77,12 +81,15 @@ function handlekeyup(event) {
     setelemebtbyid('current-life', life);
     if (life <= 0) {
         // alert('Game Over');
-        hidecontainer('playground');
-        showcontainer('scoresec');
-        setelemebtbyid('totalscore', score);
-        return;
+        gameover();
+
     }
 
+}
+function gameover() {
+    hidecontainer('playground');
+    showcontainer('scoresec');
+    setelemebtbyid('totalscore', score);
 }
 
 
@@ -95,11 +102,8 @@ function restart() {
     setelemebtbyid('current-score', score);
     const value = getcurrentvaluebyid('display-word');
     removebackground(value);
-
     removeAllBackgrounds();
     play();
-
-
 }
 
 
